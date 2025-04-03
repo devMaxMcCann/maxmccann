@@ -1,41 +1,115 @@
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    color: #333;
+    background-color: #ffffff; /* White background */
 }
+
+/* Header styling */
 header {
-    background: #333;
+    background: #0073e6;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
 }
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation styling */
 nav ul {
     list-style: none;
     padding: 0;
 }
+
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
+
 nav ul li a {
     color: #fff;
     text-decoration: none;
 }
-main {
-    max-width: 800px;
-    margin: 20px auto;
+
+/* Section styling */
+section {
     padding: 20px;
-    background: #fff;
-    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #f4f4f4; /* Light gray background */
+    border-radius: 8px;
 }
+
+/* Footer styling */
 footer {
     text-align: center;
     padding: 1rem 0;
     background: #333;
     color: #fff;
+}
+
+/* Psychedelic animation for the About Me section */
+#about {
+    position: relative;
+    color: #fff; /* White text for contrast */
+    background: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00ffee, #2b65ff, #8000ff, #ff0080);
+    background-size: 400% 400%;
+    animation: psychedelic 10s infinite linear;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+#about::before {
+    content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Black overlay with 30% opacity */
+    z-index: 0;
+    border-radius: 8px;
+}
+
+#about > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes psychedelic {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#pinballCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#about {
+    position: relative;
+    z-index: 1;
+    /* Your existing styles */
 }
