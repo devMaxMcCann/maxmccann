@@ -217,12 +217,12 @@
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: 15,
-      dx: (Math.random() * 4 - 2),
-      dy: (Math.random() * 4 - 2),
+      dx: Math.random() * 4 - 2,
+      dy: Math.random() * 4 - 2,
       speed: 0.8 + Math.random() * 0.5
     });
 
-    const balls = [createBall(), createBall(), createBall()];
+    const balls = [createBall(), createBall(), createBall(), createBall(), createBall(), createBall(), createBall(), createBall(), createBall()];
 
     const drawBall = (ball) => {
       ctx.beginPath();
@@ -238,16 +238,39 @@
     const updateBall = (ball) => {
       ball.x += ball.dx * ball.speed;
       ball.y += ball.dy * ball.speed;
+
+      // Wall bounce
       if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx *= -1;
       if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) ball.dy *= -1;
     };
 
+    const checkCollisions = () => {
+      for (let i = 0; i < balls.length; i++) {
+        for (let j = i + 1; j < balls.length; j++) {
+          const b1 = balls[i];
+          const b2 = balls[j];
+          const dx = b1.x - b2.x;
+          const dy = b1.y - b2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < b1.radius + b2.radius) {
+            // Simple elastic bounce: swap velocities
+            const tempDx = b1.dx;
+            const tempDy = b1.dy;
+            b1.dx = b2.dx;
+            b1.dy = b2.dy;
+            b2.dx = tempDx;
+            b2.dy = tempDy;
+          }
+        }
+      }
+    };
+
     const loop = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      balls.forEach(ball => {
-        drawBall(ball);
-        updateBall(ball);
-      });
+      balls.forEach(ball => updateBall(ball));
+      checkCollisions();
+      balls.forEach(drawBall);
       requestAnimationFrame(loop);
     };
 
