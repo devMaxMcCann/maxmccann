@@ -200,119 +200,61 @@
   })
 </script>
 
+
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('pinballCanvas');
     const ctx = canvas.getContext('2d');
 
-    // Set canvas dimensions
-    function resizeCanvas() {
+    const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    }
+    };
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    // Ball properties
-    const ball = {
-      x: canvas.width / 2,
-      y: canvas.height / 2,
+    const createBall = () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
       radius: 15,
-      dx: 2,
-      dy: -2,
-      speed: 2  // Slowed down the ball
-    };
+      dx: (Math.random() * 4 - 2),
+      dy: (Math.random() * 4 - 2),
+      speed: 0.8 + Math.random() * 0.5
+    });
 
-    // Bumpers with scores and colors
-    const bumpers = [
-      { x: 100, y: 150, radius: 20, points: 100, color: '#FFFF00' },  // Yellow for 100 points
-      { x: 300, y: 300, radius: 20, points: 1000, color: '#FF00FF' }, // Magenta for 1000 points
-      { x: 500, y: 200, radius: 20, points: 10, color: '#00FFFF' }    // Cyan for 10 points
-    ];
+    const balls = [createBall(), createBall(), createBall()];
 
-    // Draw ball
-    function drawBall() {
+    const drawBall = (ball) => {
       ctx.beginPath();
-      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-      ctx.fillStyle = '#ff0000';
+      ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
+      const grad = ctx.createRadialGradient(ball.x, ball.y, ball.radius * 0.95, ball.x, ball.y, ball.radius * 1.05);
+      grad.addColorStop(0, '#b8b3b3');
+      grad.addColorStop(1, '#d4d4d4');
+      ctx.fillStyle = grad;
       ctx.fill();
       ctx.closePath();
-    }
+    };
 
-    // Draw bumpers
-    function drawBumpers() {
-      bumpers.forEach(bumper => {
-        ctx.beginPath();
-        ctx.arc(bumper.x, bumper.y, bumper.radius, 0, Math.PI * 2);
-        ctx.fillStyle = bumper.color;
-        ctx.fill();
-        ctx.closePath();
-      });
-    }
-
-    // Draw flippers
-    function drawFlippers() {
-      // (no changes made here)
-    }
-
-    // Collision detection with bumpers
-    function detectBumperCollision() {
-      bumpers.forEach(bumper => {
-        const dx = ball.x - bumper.x;
-        const dy = ball.y - bumper.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-
-        if (distance < ball.radius + bumper.radius) {
-          const angle = Math.atan2(dy, dx);
-          ball.dx = -Math.cos(angle) * (Math.random() * 0.2 + 0.9); // Adding randomness to the bounce
-          ball.dy = -Math.sin(angle) * (Math.random() * 0.2 + 0.9);
-
-          // Animate bumper on hit
-          ctx.fillStyle = '#FFFFFF'; // Temporarily change color to white
-          ctx.beginPath();
-          ctx.arc(bumper.x, bumper.y, bumper.radius + 5, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.closePath();
-
-          setTimeout(() => { // Restore original color after 100ms
-            ctx.fillStyle = bumper.color;
-            ctx.beginPath();
-            ctx.arc(bumper.x, bumper.y, bumper.radius, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.closePath();
-          }, 100);
-        }
-      });
-    }
-
-    // Update ball position
-    function updateBallPosition() {
+    const updateBall = (ball) => {
       ball.x += ball.dx * ball.speed;
       ball.y += ball.dy * ball.speed;
+      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx *= -1;
+      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) ball.dy *= -1;
+    };
 
-      // Wall collision detection
-      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
-        ball.dx = -ball.dx;
-      }
-      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
-        ball.dy = -ball.dy;
-      }
-
-      detectBumperCollision();
-    }
-
-    // Main game loop
-    function gameLoop() {
+    const loop = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawBall();
-      drawBumpers();
-      updateBallPosition();
-      requestAnimationFrame(gameLoop);
-    }
+      balls.forEach(ball => {
+        drawBall(ball);
+        updateBall(ball);
+      });
+      requestAnimationFrame(loop);
+    };
 
-    gameLoop();
+    loop();
   });
-
-
 </script>
+
+
+
 <canvas id="pinballCanvas"></canvas>
