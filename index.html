@@ -9,12 +9,13 @@
 <body>
 <header>
     <h1>Max McCann</h1>
-    <p>DevOps Professional | Cybersecurity Enthusiast | Pinball Aficionado</p>
+    <p>Cloud and Platform Engineer | Cybersecurity</p>
     <nav>
         <ul>
             <li><a href="#about">About Me</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -23,19 +24,15 @@
 <section id="about">
     <h2>About Me</h2>
     <p>
-        As a Solution Architect with over eight years of experience, I specialize in developing scalable cloud
-        infrastructure for incredible applications. My journey in technology began with leadership roles in high
-        school, evolving into a career marked by a commitment to innovation and efficiency.
+        I'm a cloud and platform engineer in Chicago. Most recently I built a self hosted Retool platform on
+        Microsoft Azure: Azure Kubernetes Service, Terraform on Retool's official Azure blueprint modules, Helm,
+        private PostgreSQL and Key Vault, with a nonprod upgrade lane ahead of prod. Before that I worked on CI/CD,
+        cloud migrations, ETL and data integration across healthcare, retail, mortgage and industrial companies.
     </p>
     <p>
-        My passion extends into cybersecurity, where I actively engage in platforms like Hack The Box to refine my
-        penetration testing skills. I contribute to bug bounty programs, leveraging my expertise to enhance
-        digital security and am an active volunteer for many non-profit organizations. Come find me if you're looking
-        for mentorship or are looking to mentee a future CIO.
-    </p>
-    <p>
-        Beyond my professional endeavors, I have a keen interest in pinball, appreciating the intricate mechanics and
-        architecture. Capturing a wild ball controlled by no less than 42 forces into a glass table is my business.
+        On the security side, I hold CompTIA Security+, I'm an OWASP member, I mentor at ChiBrrCon,
+        I volunteered at B Sides Chicago in 2025, and I practice on Hack The Box. Come find me if you're looking
+        for mentorship.
     </p>
 </section>
 
@@ -44,47 +41,47 @@
     <h2>Experience</h2>
 
     <article>
-        <h3>Platform Engineer at Vivid Seats</h3>
+        <h3>Vice President Software Engineer 3 at Bank of America</h3>
         <p>
-            <time datetime="2022-03">March 2022</time>
+            <time datetime="2025-07">July 2025</time>
             – Present
         </p>
-        <ul>
-            <li>Modernizing CI/CD pipelines using Jenkins and GitHub Actions to enhance deployment efficiency.</li>
-            <li>Maintaining high-availability Kubernetes (EKS) infrastructure for critical workloads.</li>
-            <li>Developing a custom deployment platform utilizing Go and React for managing numerous microservices.</li>
-            <li>Automating cloud infrastructure provisioning with Terraform across multiple environments.</li>
-            <li>Adding telemetry systems to improve alert accuracy and enhance service monitoring.</li>
-            <li>Go to tech operations liaison to promote GitOps practices and foster cross-team collaboration.</li>
-        </ul>
     </article>
 
     <article>
-        <h3>Senior DevOps Engineer at Vontier, GVR</h3>
+        <h3>Platform Engineer at Vivid Seats</h3>
+        <p>
+            <time datetime="2023-04">April 2023</time>
+            –
+            <time datetime="2025-05">May 2025</time>
+        </p>
+    </article>
+
+    <article>
+        <h3>Sr. DevOps Engineer at Vontier (Gilbarco Veeder-Root)</h3>
         <p>
             <time datetime="2021-06">June 2021</time>
             –
             <time datetime="2022-10">October 2022</time>
         </p>
         <ul>
-            <li>Compiled PCI/SOX for global IoT supply chain systems.</li>
-            <li>Migrated SVN projects to Git.</li>
-            <li>Assisted with IaC adoption.</li>
+            <li>Evaluated GitHub Actions at launch as a replacement for GitLab CI/CD and held off because the tool was too immature.</li>
+            <li>Migrated development systems dating back to 1992 from SVN to Git on GitHub, keeping the full version history for still active systems.</li>
+            <li>Onboarded manual application testing into Jenkins CI/CD and assisted developers with CI/CD changes in GitLab.</li>
+            <li>Created MTTR and MTTD dashboards in Grafana following DORA recommendations for service ownership telemetry.</li>
+            <li>Supported C#/ASP.NET and Java applications hosted on AWS with a global DevOps team.</li>
         </ul>
     </article>
 
     <article>
-        <h3>DevOps Engineer at PennyMac Loan Services, LLC</h3>
+        <h3>DevOps Engineer Contractor at PennyMac</h3>
         <p>
             <time datetime="2021-03">March 2021</time>
             –
             <time datetime="2021-06">June 2021</time>
         </p>
         <ul>
-            <li>Ensured reliability of complex ETL workflows for financial data processing.</li>
-            <li>Terraformed scalable cloud infrastructure to accommodate fluctuating market demands for mortgages (hope
-                you refinanced your home back in 2021/22!).
-            </li>
+            <li>Ran containerized mortgage processing workloads on AWS with Ansible.</li>
         </ul>
     </article>
 
@@ -96,8 +93,12 @@
             <time datetime="2021-03">March 2021</time>
         </p>
         <ul>
-            <li>Developed full-stack web applications using frameworks such as Django and Flask.</li>
-            <li>Recognized for effective on-call troubleshooting, leading to expanded operational responsibilities.</li>
+            <li>Coordinated stakeholder alignment across development, testing and service owners, presenting release management frequency, MTTR and MTTD from ELK.</li>
+            <li>Built a deployment platform for a Django application on AWS ECS, replacing direct command line pushes of application code.</li>
+            <li>Built Jenkins CI/CD from scratch to strengthen testing and QA.</li>
+            <li>Upgraded application code from Python 2 to Python 3.</li>
+            <li>Moved high value asset tracking from Google spreadsheets to a Django microservice dashboard.</li>
+            <li>Managed deployment operations while the team was short staffed after COVID.</li>
         </ul>
     </article>
 
@@ -106,42 +107,43 @@
         <p>
             <time datetime="2018-03">March 2018</time>
             –
-            <time datetime="2019-05">May 2019</time>
+            <time datetime="2019-06">June 2019</time>
         </p>
         <ul>
-            <li>Utilized Python, AWS, and MySQL to analyze and manage healthcare data.</li>
+            <li>Handled ETL and data exchange formats between practices, hospitals, Blue Cross Blue Shield, HAP and other insurance companies.</li>
+            <li>Performed an AWS migration off on prem infrastructure run out of a server closet.</li>
+            <li>Managed Flask and Django services for a healthcare portal used by providers.</li>
+            <li>Analyzed data with Python and R to find gaps in medical coding and patient care treatment.</li>
         </ul>
     </article>
 
     <article>
-        <h3>Software Engineer (Contract) at Domino’s Pizza</h3>
+        <h3>Software Engineer Contractor at Domino's</h3>
         <p>
-            <time datetime="2018-09">September 2018</time>
+            <time datetime="2017-08">August 2017</time>
             –
-            <time datetime="2019-02">February 2019</time>
+            <time datetime="2018-02">February 2018</time>
         </p>
         <ul>
-            <li>Won a team award for home ordering using Twilio & voice ordering via Alexa, Google Home, AI ordering
-                using Tensorflow.
-            </li>
+            <li>Won a team award for innovation on a 6 month contract.</li>
+            <li>Used TensorFlow, Twilio, Alexa and Google Home to take customer orders through voice and AI systems.</li>
+            <li>Deployed Java Spring Boot services through Jenkins CI/CD.</li>
         </ul>
     </article>
 
     <article>
-        <h3>Big Data Engineer at Lowe’s Home Improvement</h3>
+        <h3>Big Data Engineer at Lowe's</h3>
         <p>
             <time datetime="2016-07">July 2016</time>
             –
-            <time datetime="2018-08">August 2018</time>
+            <time datetime="2017-08">August 2017</time>
         </p>
         <ul>
-            <li>Taught Python, Git, and SQL to data ingestion team Bash, Hadoop, and ETL processes to manage and analyze
-                large datasets.
-            </li>
-            <li>Attended professional Bash, Hadoop, and MySQL training. and ETL processes to manage and analyze large
-                datasets.
-            </li>
-            <li>Expanded ETL processes to manage and analyze large datasets of camera and consumer data.</li>
+            <li>Migrated workloads to Microsoft Azure to compare cloud costs against IBM's cloud and the private cloud.</li>
+            <li>Designed ingest and published schemas for customer data and in store camera feeds on the big data team.</li>
+            <li>Operated Talend ETL pipelines over DB2 and Hadoop for customer data and in store camera data used in image recognition.</li>
+            <li>Switched the data ingestion team from manual version control on a NAS to GitHub, and mentored senior staff on Python and version control.</li>
+            <li>Earned an honorable mention in the company hackathon with a TensorFlow and Apache Spark image recognition demo.</li>
         </ul>
     </article>
 
@@ -153,24 +155,43 @@
             <time datetime="2015-12">December 2015</time>
         </p>
         <ul>
-            <li>Developed Purdue Universities' network infrastructure system (Risque > PIC) with C#, ASP.NET, and MSSQL
-                to support university operations.
-            </li>
+            <li>Created a C#/ASP.NET application to manage Purdue's internet infrastructure.</li>
+            <li>Ran a Jira style ticketing system with SVN to track network infrastructure changes with full auditability.</li>
+            <li>Wrote batch scripts that sent alert notifications about operating status to stakeholders.</li>
         </ul>
     </article>
 
 </section>
 
-<!--TODO SOON..-->
-<!--<section id="projects">-->
-<!--    <h2>Projects</h2>-->
-<!--    <article>-->
-<!--        <h3>Project Name</h3>-->
-<!--        <p>Description of the project, technologies used, and your contributions.</p>-->
-<!--        <a href="https://link-to-project.com">View Project</a>-->
-<!--    </article>-->
-<!--    &lt;!&ndash; Repeat for other projects &ndash;&gt;-->
-<!--</section>-->
+<section id="projects">
+    <h2>Projects</h2>
+    <article>
+        <h3>Retool Platform on Microsoft Azure</h3>
+        <p>Personal project, <time datetime="2026-10">October 2026</time></p>
+        <ul>
+            <li>Deployed self hosted Retool on Azure Kubernetes Service entirely with Terraform, using Retool's official Azure blueprint modules and Helm chart, with a prod environment and a nonprod upgrade lane.</li>
+            <li>Built Azure Application Gateway ingress, Let's Encrypt TLS via DNS-01, private Azure Database for PostgreSQL Flexible Servers, Key Vault and a private VNet with NAT egress.</li>
+            <li>Reviewed the vendor's Terraform modules before applying them; found, documented and patched 3 defects (Key Vault access policies stripped on a second apply, an ingress controller hard wired to one namespace, an ingress class mismatch causing silent 502 errors).</li>
+            <li>Stood up a public data ingestion pipeline of 22 Kubernetes CronJobs, one per source, each cleared through publication and legal review.</li>
+            <li>Anchored secrets in Azure Key Vault with self hosted Infisical and per namespace Kubernetes auth identities; apps read through a least privilege read only PostgreSQL role.</li>
+            <li>Delivered a read only company risk dashboard and JSON API over 843 employers; a Retool Cloud app and workflow on that API is in progress.</li>
+        </ul>
+        <p><a href="retool-platform.html">Read the full write up</a> | <a href="https://demo.retool.maxmccann.us">View the live demo</a></p>
+    </article>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        <li><strong>Certifications:</strong> Terraform Associate 003, AWS Certified Cloud Practitioner, CompTIA Security+ SY0-701, Datadog Fundamentals Certified</li>
+        <li><strong>Platforms:</strong> Retool (self hosted), Microsoft Azure (AKS, Application Gateway, Key Vault, PostgreSQL Flexible Server), AWS (ECS)</li>
+        <li><strong>Infrastructure:</strong> Terraform, Helm, Kubernetes, containers, Ansible, Infisical, Jenkins, GitLab CI/CD, Git, SVN</li>
+        <li><strong>Data:</strong> PostgreSQL, IBM DB2, Hadoop, Talend ETL, JSON APIs, public data ingestion</li>
+        <li><strong>Languages:</strong> Python, Bash, JavaScript (React), C#/ASP.NET, Java, R, Django, Flask</li>
+        <li><strong>Delivery:</strong> Agile, Jira, release management reporting, change tracking, runbooks, MTTR and MTTD metrics</li>
+        <li><strong>Observability:</strong> Grafana, ELK, Datadog</li>
+    </ul>
+</section>
 
 <section id="contact">
     <h2>Contact</h2>
@@ -180,7 +201,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2025 Max McCann. All rights reserved.</p>
+    <p>&copy; 2026 Max McCann. All rights reserved.</p>
 </footer>
 </body>
 </html>
@@ -201,83 +222,7 @@
 </script>
 
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('pinballCanvas');
-    const ctx = canvas.getContext('2d');
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const createBall = () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: 15,
-      dx: Math.random() * 4 - 2,
-      dy: Math.random() * 4 - 2,
-      speed: 0.8 + Math.random() * 0.5
-    });
-
-    const balls = [createBall(), createBall(), createBall(), createBall(), createBall(), createBall(), createBall(), createBall(), createBall()];
-
-    const drawBall = (ball) => {
-      ctx.beginPath();
-      ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
-      const grad = ctx.createRadialGradient(ball.x, ball.y, ball.radius * 0.95, ball.x, ball.y, ball.radius * 1.05);
-      grad.addColorStop(0, '#b8b3b3');
-      grad.addColorStop(1, '#d4d4d4');
-      ctx.fillStyle = grad;
-      ctx.fill();
-      ctx.closePath();
-    };
-
-    const updateBall = (ball) => {
-      ball.x += ball.dx * ball.speed;
-      ball.y += ball.dy * ball.speed;
-
-      // Wall bounce
-      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx *= -1;
-      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) ball.dy *= -1;
-    };
-
-    const checkCollisions = () => {
-      for (let i = 0; i < balls.length; i++) {
-        for (let j = i + 1; j < balls.length; j++) {
-          const b1 = balls[i];
-          const b2 = balls[j];
-          const dx = b1.x - b2.x;
-          const dy = b1.y - b2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < b1.radius + b2.radius) {
-            // Simple elastic bounce: swap velocities
-            const tempDx = b1.dx;
-            const tempDy = b1.dy;
-            b1.dx = b2.dx;
-            b1.dy = b2.dy;
-            b2.dx = tempDx;
-            b2.dy = tempDy;
-          }
-        }
-      }
-    };
-
-    const loop = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      balls.forEach(ball => updateBall(ball));
-      checkCollisions();
-      balls.forEach(drawBall);
-      requestAnimationFrame(loop);
-    };
-
-    loop();
-  });
-</script>
 
 
 
-<canvas id="pinballCanvas"></canvas>
+
