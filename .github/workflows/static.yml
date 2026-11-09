@@ -36,11 +36,23 @@ jobs:
           persist-credentials: false
       - name: Setup Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+      # Same tar + upload as actions/upload-pages-artifact v4.0.0, minus its blanket
+      # --exclude=".[^/]*", which would drop .well-known/security.txt (RFC 9116).
+      - name: Archive artifact
+        shell: sh
+        run: |
+          tar --dereference --hard-dereference --directory . \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude=./.git --exclude=./.github --exclude=./.gitignore \
+            .
+          tar -tf "$RUNNER_TEMP/artifact.tar" | grep -qx './.well-known/security.txt'
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4.0.0
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          # Upload entire repository
-          path: '.'
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
